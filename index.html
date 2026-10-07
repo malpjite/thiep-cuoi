@@ -579,30 +579,6 @@
   <!-- Hiệu ứng cánh hoa vàng rơi nhẹ -->
   <canvas id="petals-canvas"></canvas>
 
-  <!-- THANH CÔNG CỤ TƯƠNG TÁC -->
-  <div class="toolbar-container">
-    <div class="guest-search-box">
-      <i class="fa-solid fa-pen-fancy" style="color: #b18826; margin-right: 8px;"></i>
-      <input type="text" id="guestInput" placeholder="Nhập tên khách mời (VD: Anh Minh & Gia Đình)...">
-      <button onclick="applyGuestName()">Cập nhật</button>
-    </div>
-
-    <div class="quick-actions">
-      <button class="btn-action" onclick="downloadCardImage()">
-        <i class="fa-solid fa-download" style="color: #b18826;"></i> Tải ảnh thiệp
-      </button>
-      <button class="btn-action" onclick="window.print()">
-        <i class="fa-solid fa-print"></i> In / PDF
-      </button>
-      <button class="btn-action" onclick="shareCardLink()">
-        <i class="fa-solid fa-share-nodes"></i> Sao chép link mời
-      </button>
-      <a class="btn-action" href="https://www.google.com/maps/search/?api=1&query=2PQJ%2BX8M%2C+QL18%2C+T%C3%A2n+L%E1%BA%ADp+1%2C+Y%C3%AAn+T%E1%BB%AD%2C+Qu%E1%BA%A3ng+Ninh%2C+Vi%E1%BB%87t+Nam" target="_blank">
-        <i class="fa-solid fa-map-location-dot" style="color: #9e1b2d;"></i> Bản đồ
-      </a>
-    </div>
-  </div>
-
   <!-- THIỆP CƯỚI CHÍNH (ARCH FRAME CHUẨN MẪU) -->
   <div class="card-outer-wrapper">
     <div class="invitation-card" id="invitationCard">
@@ -727,6 +703,8 @@
     <i class="fa-solid fa-music"></i>
   </div>
   <audio id="weddingMusic" loop preload="none">
+    <source src="Think%20They%20Call%20This%20Love%20%20-%20Lyrics.mp3" type="audio/mp3">
+    <source src="Think They Call This Love  - Lyrics.mp3" type="audio/mp3">
     <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-wedding-walk-2798.mp3" type="audio/mp3">
   </audio>
 
@@ -737,26 +715,11 @@
       const name = params.get('to') || params.get('guest') || params.get('khach');
       if (name) {
         document.getElementById('guestNameDisplay').textContent = name;
-        document.getElementById('guestInput').value = name;
       }
     }
 
-    function applyGuestName() {
-      const val = document.getElementById('guestInput').value.trim() || 'Quý Khách';
-      document.getElementById('guestNameDisplay').textContent = val;
-
-      const url = new URL(window.location);
-      url.searchParams.set('to', val);
-      window.history.replaceState({}, '', url);
-    }
-
-    document.getElementById('guestInput').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') applyGuestName();
-    });
-
     // Sao chép link mời
     function shareCardLink() {
-      applyGuestName();
       if (navigator.clipboard) {
         navigator.clipboard.writeText(window.location.href).then(() => {
           alert('Đã sao chép liên kết thiệp cưới! Bạn có thể gửi link này cho người thân & bạn bè.');
