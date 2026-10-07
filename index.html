@@ -702,7 +702,7 @@
   <div class="music-fab" id="musicFab" onclick="toggleAudio()" title="Bật/Tắt nhạc nền">
     <i class="fa-solid fa-music"></i>
   </div>
-  <audio id="weddingMusic" loop preload="none">
+  <audio id="weddingMusic" loop preload="auto" autoplay playsinline>
     <source src="Think%20They%20Call%20This%20Love%20%20-%20Lyrics.mp3" type="audio/mp3">
     <source src="Think They Call This Love  - Lyrics.mp3" type="audio/mp3">
     <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-wedding-walk-2798.mp3" type="audio/mp3">
@@ -784,20 +784,20 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // Nhạc nền
+    // Nhạc nền & Tự động phát khi vào trang
     const audio = document.getElementById('weddingMusic');
     const fab = document.getElementById('musicFab');
     let isPlaying = false;
 
+    function playAudioSuccess() {
+      isPlaying = true;
+      fab.classList.add('playing');
+      fab.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
+
     function toggleAudio() {
       if (!isPlaying) {
-        audio.play().then(() => {
-          isPlaying = true;
-          fab.classList.add('playing');
-          fab.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-        }).catch(e => {
-          console.warn('Playback error', e);
-        });
+        audio.play().then(playAudioSuccess).catch(e => console.warn('Play error:', e));
       } else {
         audio.pause();
         isPlaying = false;
@@ -805,6 +805,34 @@
         fab.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
       }
     }
+
+    // Tự động phát nhạc khi mở trang web (hỗ trợ chính sách trình duyệt)
+    function autoPlayMusic() {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(playAudioSuccess).catch(() => {
+          // Trình duyệt chặn autoplay khi chưa có tương tác: kích hoạt ngay khi người dùng chạm/click/cuộn
+          const handleFirstInteraction = () => {
+            if (!isPlaying) {
+              audio.play().then(playAudioSuccess).catch(() => {});
+            }
+            ['click', 'touchstart', 'scroll', 'pointerdown'].forEach(evt => {
+              window.removeEventListener(evt, handleFirstInteraction);
+              document.removeEventListener(evt, handleFirstInteraction);
+            });
+          };
+
+          ['click', 'touchstart', 'scroll', 'pointerdown'].forEach(evt => {
+            window.addEventListener(evt, handleFirstInteraction, { passive: true, once: true });
+            document.addEventListener(evt, handleFirstInteraction, { passive: true, once: true });
+          });
+        });
+      }
+    }
+
+    // Kích hoạt phát nhạc ngay
+    autoPlayMusic();
+    window.addEventListener('load', autoPlayMusic);
 
     // Hiệu ứng cánh hoa bay
     const canvas = document.getElementById('petals-canvas');
