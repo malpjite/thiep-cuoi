@@ -590,6 +590,185 @@
         font-size: 11px;
       }
     }
+
+    /* MÀN HÌNH BÌA PHONG BÌ MỞ ĐẦU (ENVELOPE SCREEN) */
+    .envelope-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(ellipse at 50% 50%, #173820 0%, #0a180e 100%);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s;
+    }
+
+    .envelope-overlay.opened {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Chiếc lá bay trang trí nền tối */
+    .env-leaf {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.35;
+      color: #5c8d62;
+      animation: floatLeaf 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatLeaf {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(15px, -20px) rotate(25deg); }
+    }
+
+    .envelope-card {
+      position: relative;
+      background: #fbf8f2;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 480px;
+      padding: 46px 28px 38px;
+      text-align: center;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .envelope-overlay.opened .envelope-card {
+      transform: scale(1.08) translateY(-20px);
+      opacity: 0;
+    }
+
+    /* Hoa màu nước góc phong bì */
+    .floral-corner {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background-image: url('flower.jpg');
+      background-size: 260% 260%;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .floral-corner.top-left {
+      top: -20px;
+      left: -20px;
+      background-position: 5% 5%;
+    }
+
+    .floral-corner.bottom-right {
+      bottom: -20px;
+      right: -20px;
+      background-position: 95% 95%;
+    }
+
+    .envelope-seal {
+      width: 46px;
+      height: 46px;
+      background: #24481d;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      border: 2px solid #37632d;
+      animation: sealPulse 2.4s infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(43, 85, 34, 0.55); }
+      50% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(43, 85, 34, 0); }
+    }
+
+    .env-couple-title {
+      font-family: 'Playfair Display', serif;
+      color: #1e3919;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .env-groom, .env-bride {
+      font-size: 33px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+    }
+
+    .env-ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: #3b5a32;
+      margin: 2px 0;
+    }
+
+    .env-ornament {
+      color: #3f6036;
+      font-size: 16px;
+      margin-bottom: 12px;
+      opacity: 0.8;
+      position: relative;
+      z-index: 2;
+    }
+
+    .env-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: #374f31;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .env-invite-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: #4b6245;
+      font-style: italic;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .env-open-btn {
+      background: #24481d;
+      color: #ffffff;
+      border: none;
+      padding: 12px 38px;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(27, 56, 21, 0.4);
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 5;
+    }
+
+    .env-open-btn:hover {
+      background: #2f5d26;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 26px rgba(27, 56, 21, 0.5);
+    }
   </style>
 </head>
 
@@ -597,6 +776,49 @@
 
   <!-- Hiệu ứng cánh hoa vàng rơi nhẹ -->
   <canvas id="petals-canvas"></canvas>
+
+  <!-- MÀN HÌNH BÌA PHONG BÌ MỞ ĐẦU (THEO MẪU BẠN CHỌN) -->
+  <div class="envelope-overlay" id="envelopeOverlay">
+    <!-- Những chiếc lá rơi trôi nhẹ trên nền xanh rừng đậm -->
+    <i class="fa-solid fa-leaf env-leaf" style="top: 15%; left: 10%; font-size: 24px; animation-duration: 9s;"></i>
+    <i class="fa-solid fa-leaf env-leaf" style="top: 25%; right: 12%; font-size: 18px; animation-duration: 11s;"></i>
+    <i class="fa-solid fa-leaf env-leaf" style="bottom: 20%; left: 8%; font-size: 22px; animation-duration: 10s;"></i>
+    <i class="fa-solid fa-leaf env-leaf" style="bottom: 12%; right: 15%; font-size: 20px; animation-duration: 12s;"></i>
+    <i class="fa-solid fa-leaf env-leaf" style="top: 60%; right: 8%; font-size: 16px; animation-duration: 8s;"></i>
+
+    <div class="envelope-card" id="envelopeCard" onclick="openWeddingEnvelope()">
+      <!-- Hoa màu nước góc trên trái -->
+      <div class="floral-corner top-left"></div>
+      <!-- Hoa màu nước góc dưới phải -->
+      <div class="floral-corner bottom-right"></div>
+
+      <!-- Con dấu niêm phong màu xanh kèm trái tim trắng -->
+      <div class="envelope-seal">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+
+      <!-- Tên Cô Dâu Chú Rể -->
+      <div class="env-couple-title">
+        <div class="env-groom">Thế Phong</div>
+        <div class="env-ampersand">&</div>
+        <div class="env-bride">Thúy Nga</div>
+      </div>
+
+      <!-- Họa tiết dây hoa văn -->
+      <div class="env-ornament">❦</div>
+
+      <!-- Ngày cưới -->
+      <div class="env-date">18 tháng 10, 2026</div>
+
+      <!-- Lời mời -->
+      <div class="env-invite-label" id="envGuestLabel">Thân Mời</div>
+
+      <!-- Nút bấm Mở thiệp -->
+      <button class="env-open-btn" onclick="event.stopPropagation(); openWeddingEnvelope();">
+        Mở thiệp
+      </button>
+    </div>
+  </div>
 
   <!-- THIỆP CƯỚI CHÍNH (ARCH FRAME CHUẨN MẪU) -->
   <div class="card-outer-wrapper">
@@ -748,7 +970,31 @@
       const name = params.get('to') || params.get('guest') || params.get('khach');
       if (name) {
         document.getElementById('guestNameDisplay').textContent = name;
+        const envLabel = document.getElementById('envGuestLabel');
+        if (envLabel) envLabel.textContent = 'Thân Mời: ' + name;
       }
+    }
+
+    // Mở phong bì & Bật nhạc Think They Call This Love
+    function openWeddingEnvelope() {
+      const overlay = document.getElementById('envelopeOverlay');
+      if (!overlay || overlay.classList.contains('opened')) return;
+
+      // 1. Phát bài hát ngay lập tức khi mở thiệp
+      const audio = document.getElementById('weddingMusic');
+      if (audio) {
+        audio.play().then(() => {
+          onPlaySuccess();
+        }).catch(err => {
+          console.warn('Audio play error:', err);
+        });
+      }
+
+      // 2. Chuyển cảnh mượt mà mở ra thông tin thiệp cưới
+      overlay.classList.add('opened');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 900);
     }
 
     // Sao chép link mời
