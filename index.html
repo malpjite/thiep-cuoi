@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,10 @@
   <!-- Google Fonts với tiếng Việt hoàn chỉnh -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@500;600;700&family=Ephesis&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap&subset=vietnamese" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@500;600;700&family=Ephesis&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap&subset=vietnamese"
+    rel="stylesheet">
+
   <!-- FontAwesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- html2canvas để hỗ trợ tải ảnh thiệp -->
@@ -81,7 +84,7 @@
       border: 1px solid #dcd1be;
       border-radius: 40px;
       padding: 4px 6px 4px 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       backdrop-filter: blur(10px);
     }
 
@@ -134,7 +137,7 @@
       border: 1px solid rgba(197, 155, 39, 0.4);
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
       transition: all 0.2s ease;
     }
 
@@ -159,7 +162,7 @@
       position: relative;
       background: #fdfbf7;
       /* Vân giấy lụa cao cấp */
-      background-image: 
+      background-image:
         radial-gradient(rgba(215, 203, 180, 0.4) 1px, transparent 1px),
         radial-gradient(rgba(225, 212, 190, 0.3) 1px, #fdfbf7 1px);
       background-size: 24px 24px;
@@ -446,7 +449,7 @@
       border-radius: 14px;
       padding: 20px;
       border: 1px solid rgba(197, 155, 39, 0.3);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       text-align: center;
     }
 
@@ -513,7 +516,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
       cursor: pointer;
       border: 2px solid #ffffff;
       transition: all 0.25s;
@@ -524,7 +527,9 @@
     }
 
     @keyframes spinMusic {
-      100% { transform: rotate(360deg); }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     /* IN ẤN CHUẨN KÍCH THƯỚC */
@@ -533,12 +538,18 @@
         background: transparent !important;
         padding: 0 !important;
       }
-      .toolbar-container, .interactive-card, .music-fab, #petals-canvas {
+
+      .toolbar-container,
+      .interactive-card,
+      .music-fab,
+      #petals-canvas {
         display: none !important;
       }
+
       .card-outer-wrapper {
         max-width: 100% !important;
       }
+
       .invitation-card {
         box-shadow: none !important;
         padding: 0 !important;
@@ -549,31 +560,39 @@
       .card-inner-content {
         padding: 42px 18px 30px;
       }
+
       .calligraphy-name {
         font-size: 42px;
       }
+
       .invite-header-title {
         font-size: 14px;
         letter-spacing: 2px;
       }
+
       .solar-date-banner {
         font-size: 19px;
       }
+
       .time-script-title {
         font-size: 25px;
       }
+
       .lunar-date-script {
         font-size: 22px;
       }
+
       .honored-greeting {
         font-size: 26px;
       }
+
       .parent-line {
         font-size: 11px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Hiệu ứng cánh hoa vàng rơi nhẹ -->
@@ -605,8 +624,14 @@
             <div class="calligraphy-name">Trần Thế Phong</div>
             <div class="double-hearts">
               <!-- SVG trái tim chuẩn đôi -->
-              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
             </div>
             <div class="calligraphy-name">Nguyễn Thúy Nga</div>
           </div>
@@ -617,7 +642,8 @@
             <div class="event-venue-address">
               Tổ 6 - Khu phố Bí Trung - P. Yên Tử - TP. Quảng Ninh
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=2PQJ%2BX8M%2C+QL18%2C+T%C3%A2n+L%E1%BA%ADp+1%2C+Y%C3%AAn+T%E1%BB%AD%2C+Qu%E1%BA%A3ng+Ninh%2C+Vi%E1%BB%87t+Nam" target="_blank" class="map-link-hint">
+            <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Ti%E1%BB%83u+h%E1%BB%8Dc+Ph%C6%B0%C6%A1ng+%C4%90%C3%B4ng+B/@21.0399528,106.7307835,17z/data=!3m1!4b1!4m6!3m5!1s0x314a88739fd6a5e7:0xff6d4d25b0563c67!8m2!3d21.0399528!4d106.7307835"
+              target="_blank" class="map-link-hint">
               <i class="fa-solid fa-location-dot"></i> Bấm để xem bản đồ & chỉ đường
             </a>
           </div>
@@ -689,7 +715,8 @@
     </div>
 
     <div class="calendar-actions">
-      <a class="btn-action" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+Th%C3%A0nh+H%C3%B4n%3A+Th%E1%BA%BF+Phong+%26+Th%C3%BAy+Nga&dates=20261018T030000Z/20261018T070000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+t%E1%BB%9Bi+d%E1%BB%B1+b%E1%BB%AFa+c%C6%A1m+th%C3%A2n+m%E1%BA%ADt+M%E1%BB%ABng+L%E1%BB%85+Th%C3%A0nh+H%C3%B4n+c%E1%BB%A7a+Th%E1%BA%BF+Phong+%26+Th%C3%BAy+Nga&location=2PQJ%2BX8M%2C+QL18%2C+T%C3%A2n+L%E1%BA%ADp+1%2C+Y%C3%AAn+T%E1%BB%AD%2C+Qu%E1%BA%A3ng+Ninh%2C+Vi%E1%BB%87t+Nam">
+      <a class="btn-action" target="_blank"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=L%E1%BB%85+Th%C3%A0nh+H%C3%B4n%3A+Th%E1%BA%BF+Phong+%26+Th%C3%BAy+Nga&dates=20261018T030000Z/20261018T070000Z&details=Tr%C3%A2n+tr%E1%BB%8Dng+k%C3%ADnh+m%E1%BB%9Di+t%E1%BB%9Bi+d%E1%BB%B1+b%E1%BB%AFa+c%C6%A1m+th%C3%A2n+m%E1%BA%ADt+M%E1%BB%ABng+L%E1%BB%85+Th%C3%A0nh+H%C3%B4n+c%E1%BB%A7a+Th%E1%BA%BF+Phong+%26+Th%C3%BAy+Nga&location=Tr%C6%B0%E1%BB%9Dng+Ti%E1%BB%83u+h%E1%BB%8Dc+Ph%C6%B0%C6%A1ng+%C4%90%C3%B4ng+B%2C+U%C3%B4ng+B%C3%AD%2C+Qu%E1%BA%A3ng+Ninh">
         <i class="fa-solid fa-calendar-plus" style="color: #2780e3;"></i> Thêm vào Google Calendar
       </a>
       <button class="btn-action" onclick="leaveWeddingWish()">
@@ -784,20 +811,20 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // Nhạc nền & Tự động phát khi vào trang
+    // Nhạc nền
     const audio = document.getElementById('weddingMusic');
     const fab = document.getElementById('musicFab');
     let isPlaying = false;
 
-    function playAudioSuccess() {
-      isPlaying = true;
-      fab.classList.add('playing');
-      fab.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-    }
-
     function toggleAudio() {
       if (!isPlaying) {
-        audio.play().then(playAudioSuccess).catch(e => console.warn('Play error:', e));
+        audio.play().then(() => {
+          isPlaying = true;
+          fab.classList.add('playing');
+          fab.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        }).catch(e => {
+          console.warn('Playback error', e);
+        });
       } else {
         audio.pause();
         isPlaying = false;
@@ -805,34 +832,6 @@
         fab.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
       }
     }
-
-    // Tự động phát nhạc khi mở trang web (hỗ trợ chính sách trình duyệt)
-    function autoPlayMusic() {
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.then(playAudioSuccess).catch(() => {
-          // Trình duyệt chặn autoplay khi chưa có tương tác: kích hoạt ngay khi người dùng chạm/click/cuộn
-          const handleFirstInteraction = () => {
-            if (!isPlaying) {
-              audio.play().then(playAudioSuccess).catch(() => {});
-            }
-            ['click', 'touchstart', 'scroll', 'pointerdown'].forEach(evt => {
-              window.removeEventListener(evt, handleFirstInteraction);
-              document.removeEventListener(evt, handleFirstInteraction);
-            });
-          };
-
-          ['click', 'touchstart', 'scroll', 'pointerdown'].forEach(evt => {
-            window.addEventListener(evt, handleFirstInteraction, { passive: true, once: true });
-            document.addEventListener(evt, handleFirstInteraction, { passive: true, once: true });
-          });
-        });
-      }
-    }
-
-    // Kích hoạt phát nhạc ngay
-    autoPlayMusic();
-    window.addEventListener('load', autoPlayMusic);
 
     // Hiệu ứng cánh hoa bay
     const canvas = document.getElementById('petals-canvas');
@@ -890,4 +889,5 @@
     checkUrlGuest();
   </script>
 </body>
+
 </html>
